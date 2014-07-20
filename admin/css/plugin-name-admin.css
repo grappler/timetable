@@ -1,0 +1,12 @@
+/**
+ * All of the CSS for your Dashboard-specific functionality should be
+ * included in this file.
+ */
+
+.session-row-content label{
+	display: inline-block;
+	min-width: 45px;
+}
+.session-row-content select {
+	width: 189px;
+}

@@ -1,4 +1,0 @@
-timetable
-=========
-
-WordPress Timetable plugin

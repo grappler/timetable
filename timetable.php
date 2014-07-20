@@ -1,27 +1,27 @@
 <?php
+
 /**
- * The WordPress Plugin Boilerplate.
+ * Short Description (no period for file headers)
  *
- * A foundation off of which to build well-documented WordPress plugins that also follow
- * WordPress coding standards and PHP best practices.
+ * Long Description.
  *
  * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @author    Your Name or Company Name <email@domain.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://example.com/plugin-name
+ * @copyright 2014 Your Name or Company Name
  *
  * @wordpress-plugin
- * Plugin Name: Timetable
- * Plugin URI:  TODO
- * Description: TODO
- * Version:     1.0.0
- * Author:      Ulrich Pogson
- * Author URI:  ulrich.pogson.ch
- * Text Domain: plugin-name-locale
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path: /lang
+ * Plugin Name:       Timetable
+ * Plugin URI:        http://example.com/plugin-name-uri
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Version:           1.0.0
+ * Author:            Ulrich Pogson
+ * Author URI:        http://example.com
+ * Text Domain:       plugin-name-locale
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
@@ -29,30 +29,57 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Plugin Root File
-if ( ! defined( 'TIMETABLE_PLUGIN_FILE' ) ) {
-	define( 'TIMETABLE_PLUGIN_FILE', __FILE__ );
+define( 'TIMETABLE_DIR', plugin_dir_path( __FILE__ ) );
+
+add_action('admin_menu', 'register_my_custom_submenu_page');
+
+function register_my_custom_submenu_page() {
+
+	add_submenu_page(
+		'edit.php?post_type=session',
+		'My Custom Submenu Page',
+		'My Custom Submenu Page',
+		'manage_options',
+		'my-custom-submenu-page',
+		'my_custom_submenu_page_callback',
+	);
+
 }
-// Plugin Root Directory
-if ( ! defined( 'TIMETABLE_PLUGIN_DIR' ) ) {
-	define( 'TIMETABLE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
+/**
+ * The plugin activation class that runs during plugin activation.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
+
+/**
+ * The plugin deactivation class that runs during plugin deactivation.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+
+/** This action is documented in includes/class-plugin-name-activator.php */
+register_activation_hook( __FILE__, array( 'Plugin_Name_Activator', 'activate' ) );
+
+/** This action is documented in includes/class-plugin-name-deactivator.php */
+register_activation_hook( __FILE__, array( 'Plugin_Name_Deactivator', 'deactivate' ) );
+
+/**
+ * The base class used to define certain functionality and attributes used among
+ * the dashboard-specific and public-facing functionality.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+
+/**
+ * Short description. (use period)
+ *
+ * Long description.
+ *
+ * @since    1.0.0
+ */
+function run_plugin_name() {
+
+	$plugin = new Plugin_Name();
+	$plugin->run();
+
 }
 
-// TODO: replace `class-plugin-name.php` with the name of the actual plugin's class file
-require_once( plugin_dir_path( __FILE__ ) . 'includes/class-timetable.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'admin/class-timetable-meta-box.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'admin/class-timetable-admin.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'frontend/class-timetable-template-loader.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'frontend/class-timetable-frontend.php' );
-
-// Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-// TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
-register_activation_hook( __FILE__, array( 'Timetable', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Timetable', 'deactivate' ) );
-
-// TODO: replace Plugin_Name with the name of the plugin defined in `class-plugin-name.php`
-Timetable::get_instance();
-Timetable_Meta_Box::get_instance();
-Timetable_Admin::get_instance();
-
-//$timetable_template_loader = new Timetable_Template_Loader;
+run_plugin_name();

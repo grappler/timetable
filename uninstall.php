@@ -1,17 +1,16 @@
 <?php
+
 /**
- * Fired when the plugin is uninstalled.
+ * Short Description (no period for file headers)
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * Long Description.
+ *
+ * @package Plugin_Name
+ * @link    http://example.com
+ * @since   1.0.0
  */
 
-// If uninstall, not called from WordPress, then exit
+// If uninstall not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
-
-// TODO: Define uninstall functionality here

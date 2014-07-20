@@ -23,59 +23,23 @@ if ( ! defined( 'WPINC' ) ) {
 class Timetable_Meta_Box {
 
 	/**
-	 * Unique identifier for your plugin.
-	 *
-	 * Use this value (not the variable name) as the text domain when internationalizing strings of text. It should
-	 * match the Text Domain file header in the main plugin file.
+	 * Short description. (use period)
 	 *
 	 * @since    1.0.0
-	 *
-	 * @var      string
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
-	protected $plugin_slug;
+	private $version;
 
 	/**
-	 * Instance of this class.
+	 * Short description. (use period)
 	 *
 	 * @since    1.0.0
-	 *
-	 * @var      object
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
-	protected static $instance = null;
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    object    A single instance of this class.
-	 */
-	public static function get_instance() {
-
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
-
-	/**
-	 * Initializes the plugin by setting localization, filters, and administration functions.
-	 *
-	 * @since     1.0.0
-	 */
-	public function __construct() {
-
-		$Timetable = Timetable::get_instance();
-		$this->plugin_slug = $Timetable->get_plugin_slug();
-
-		// Setup the meta boxes for the video and shortcode
-		add_action( 'add_meta_boxes', array( $this, 'add_session_meta_box' ) );
-
-		// Setup the function responsible for saving
-		add_action( 'save_post', array( $this, 'save_session_details' ) );
-
+	public function __construct( $version ) {
+		$this->version = $version;
 	}
 
 	/**
@@ -87,8 +51,8 @@ class Timetable_Meta_Box {
 
 		add_meta_box(
 			'session_details',
-			__( 'Day & Time', $this->plugin_slug ),
-			array( $this, 'display_video_meta_box' ),
+			__( 'Day & Time', 'timetable' ),
+			array( $this, 'display_session_meta_box' ),
 			'session',
 			'side',
 			'default'
@@ -101,12 +65,12 @@ class Timetable_Meta_Box {
 	 *
 	 * @since      1.0.0
 	 */
-	public function display_video_meta_box( $post ) {
+	public function display_session_meta_box( $post ) {
 
-		wp_nonce_field( plugin_basename( __FILE__ ), 'fp5-nonce' );
-		$fp5_stored_meta = get_post_meta( $post->ID );
+		wp_nonce_field( plugin_basename( __FILE__ ), 'timetable-nonce' );
+		$session_stored_meta = get_post_meta( $post->ID );
 
-		include_once( plugin_dir_path( __FILE__ ) . 'views/display-meta-box.php' );
+		include_once( plugin_dir_path( __FILE__ ) . 'partials/session-meta-box-display.php' );
 
 	}
 
@@ -118,32 +82,32 @@ class Timetable_Meta_Box {
 	 */
 	public function save_session_details( $post_id ) {
 
-		if ( $this->user_can_save( $post_id, 'fp5-nonce' ) ) {
+		if ( $this->user_can_save( $post_id, 'timetable-nonce' ) ) {
 
 			// Checks for input and saves
-			if( isset( $_POST[ 'timetable-day' ] ) ) {
+			if( isset( $_POST[ 'session-day' ] ) ) {
 				update_post_meta(
 					$post_id,
-					'timetable-day',
-					$_POST[ 'timetable-day' ]
+					'session-day',
+					$_POST[ 'session-day' ]
 				);
 			}
 
 			// Checks for input and saves if needed
-			if( isset( $_POST[ 'timetable-start' ] ) ) {
+			if( isset( $_POST[ 'session-start' ] ) ) {
 				update_post_meta(
 					$post_id,
-					'timetable-start',
-					$_POST[ 'timetable-start' ]
+					'session-start',
+					date('H:i', strtotime( $_POST[ 'session-start' ] ) )
 				);
 			}
 
 			// Checks for input and saves if needed
-			if( isset( $_POST[ 'timetable-end' ] ) ) {
+			if( isset( $_POST[ 'session-end' ] ) ) {
 				update_post_meta(
 					$post_id,
-					'timetable-end',
-					$_POST[ 'timetable-end' ]
+					'session-end',
+					date('H:i', strtotime( $_POST[ 'session-end' ] ) )
 				);
 			}
 

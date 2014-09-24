@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'TIMETABLE_DIR', plugin_dir_path( __FILE__ ) );
 
-add_action('admin_menu', 'register_my_custom_submenu_page');
+//add_action('admin_menu', 'register_my_custom_submenu_page');
 
 function register_my_custom_submenu_page() {
 
@@ -41,7 +41,7 @@ function register_my_custom_submenu_page() {
 		'My Custom Submenu Page',
 		'manage_options',
 		'my-custom-submenu-page',
-		'my_custom_submenu_page_callback',
+		'my_custom_submenu_page_callback'
 	);
 
 }

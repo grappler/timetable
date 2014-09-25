@@ -8,15 +8,15 @@
 .clearfix:after, .tribe-clearfix:after {clear: both;}
 .clearfix, .tribe-clearfix {zoom: 1;}
 .tribe-clear {clear: both;}
-.tribe-events-visuallyhidden {
+.timetable-visuallyhidden {
 	border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 .tribe-hide-text {
 	text-indent: 100%;
@@ -31,7 +31,7 @@
    @ Template: week.php
 =============================================*/
 /* grid structure */
-.tribe-events-grid {
+.timetable-grid {
 	border: 1px solid #bbb;
 	font-size: 12px;
 	width: 100%;
@@ -41,53 +41,53 @@
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;
 }
-.tribe-events-grid * {
+.timetable-grid * {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;
 }
 
 /* grid header */
-.tribe-grid-header {
+.timetable-grid-header {
 	border-bottom: 1px solid #bbb;
 	background-color: #ddd;
 }
 
-.tribe-grid-header .column {
+.timetable-grid-header .column {
 	text-align: center;
 	text-transform: uppercase;
 	padding: 1em 0;
 	letter-spacing: 1px;
 }
 
-.tribe-grid-header .column a {
+.timetable-grid-header .column a {
 	color: #333;
 	font-weight: bold;
 }
 
 /* columns & structure */
-.tribe-week-grid-wrapper {
+.timetable-inner-grid-wrapper {
 	height: 500px;
 	position: relative;
 }
 
-.tribe-events-grid .slimScrollBar {
+.timetable-grid .slimScrollBar {
 	z-index: 1000 !important
 }
 
-.tribe-grid-body {
+.timetable-grid-body {
 	overflow: visible;
 	position: relative;
 }
 
-.tribe-week-grid-hours {
+.timetable-grid-hours {
 	background-color: #fff;
 	position: relative;
 	z-index: 20;
 }
 
-.tribe-events-grid .column.first,
-.tribe-week-grid-hours {
+.timetable-grid .column.first,
+.timetable-grid-hours {
 	float: left;
 	width: 40px;
 	margin-right: -40px;
@@ -95,7 +95,7 @@
 }
 
 .tribe-grid-allday .column.first,
-.tribe-week-grid-hours div {
+.timetable-grid-hours div {
 	height: 60px;
 	position: relative;
 	text-transform: uppercase;
@@ -105,13 +105,13 @@
 	text-align: center;
 }
 
-.tribe-grid-content-wrap {
+.timetable-grid-content-wrap {
 	width: 100%;
 	float: left;
 	padding-left: 40px;
 }
 
-.tribe-events-grid .tribe-grid-content-wrap .column {
+.timetable-grid .timetable-grid-content-wrap .column {
 	display: inline-block;
 	zoom: 1;
 	*display: inline;
@@ -122,17 +122,17 @@
 	border-left: 1px solid #bbb;
 }
 
-.tribe-grid-body .tribe-grid-content-wrap .column {
+.timetable-grid-body .timetable-grid-content-wrap .column {
 	position: relative;
 }
 
 /* Global Week Event Styles */
 
-.tribe-events-grid .hentry.vevent {
+.timetable-grid .hentry.vevent {
 	padding:4px;
 }
 
-.tribe-events-grid .hentry.vevent h3.entry-title {
+.timetable-grid .hentry.vevent h3.entry-title {
 	color: #333;
 	font-size: 12px;
 	line-height: 1.25;
@@ -144,19 +144,19 @@
 	overflow: hidden;
 	height: 100%;
 }
-.tribe-events-grid .hentry.vevent a {
- 	color: #333;
- 	font-size: 12px;
- 	line-height: 1.25;
- 	padding: 0;
- 	display: block;
+.timetable-grid .hentry.vevent a {
+	color: #333;
+	font-size: 12px;
+	line-height: 1.25;
+	padding: 0;
+	display: block;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	outline: none;
 }
 .tribe-grid-allday .hentry.vevent > div,
-.tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent {
+.timetable-grid-body div[id*="tribe-events-event-"] .hentry.vevent {
 	width: 100%;
 	background-color: #e6e6e6;
 	background-color: rgba(221, 221, 221, .75);
@@ -166,7 +166,7 @@
 	cursor: pointer;
 }
 .tribe-grid-allday .hentry.vevent > div:hover,
-.tribe-grid-body div[id*="tribe-events-event-"] .hentry.vevent:hover {
+.timetable-grid-body div[id*="tribe-events-event-"] .hentry.vevent:hover {
 	background-color: #e2e2e2;
 	background-color: rgba(221, 221, 221, .85);
 }
@@ -236,30 +236,30 @@
 }
 
 /* Actual Event Styles */
-.tribe-grid-body .hentry.vevent {
- 	width: 100%;
- 	height: 100%;
+.timetable-grid-body .hentry.vevent {
+	width: 100%;
+	height: 100%;
 }
-.tribe-grid-body div[id*="tribe-events-event-"] {
- 	font-weight: bold;
+.timetable-grid-body div[id*="tribe-events-event-"] {
+	font-weight: bold;
 	line-height: 1.25;
- 	position: absolute;
- 	z-index: 500;
- 	width: 100%;
- 	padding: 4px;
+	position: absolute;
+	z-index: 500;
+	width: 100%;
+	padding: 4px;
 }
-.tribe-grid-body div[id*="tribe-events-event-"]:hover {
- 	z-index: 800;
+.timetable-grid-body div[id*="tribe-events-event-"]:hover {
+	z-index: 800;
 }
 
 /* Tooltip */
-.tribe-events-grid div[id*="tribe-events-tooltip-"] {
+.timetable-grid div[id*="tribe-events-tooltip-"] {
 	text-align: left;
 }
-.tribe-grid-body .tribe-events-tooltip .tribe-events-event-body {
+.timetable-grid-body .tribe-events-tooltip .tribe-events-event-body {
 	position: relative;
 }
-.tribe-grid-body .tribe-events-tooltip .tribe-events-arrow {
+.timetable-grid-body .tribe-events-tooltip .tribe-events-arrow {
 	width: 11px;
 	height: 18px;
 	background-position: -33px 0;
@@ -267,7 +267,7 @@
 	left: -11px;
 	top: 6px;
 }
-.tribe-grid-body .tribe-events-right .tribe-events-tooltip .tribe-events-arrow {
+.timetable-grid-body .tribe-events-right .tribe-events-tooltip .tribe-events-arrow {
 	left: auto;
 	right: -11px;
 	background-position: -20px 0;
@@ -279,11 +279,11 @@
 }
 
 /* Week view grid background */
-.tribe-week-grid-outer-wrap {
+.timetable-grid-outer-wrap {
 	position: relative;
 	z-index: 10;
 }
-.tribe-week-grid-inner-wrap {
+.timetable-grid-inner-wrap {
 	position: absolute;
 	width: 100%;
 }
@@ -301,5 +301,5 @@
 
 /* custom styles */
 .tribe-events-column {
-    height: 1440px;
+	height: 1440px;
 }

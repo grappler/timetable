@@ -17,7 +17,7 @@ class Timetable_Shortcodes {
 
 		ob_start();
 
-		return timetable_get_template_part( 'timetable' );
+		timetable_get_template_part( 'timetable' );
 
 		return ob_get_clean();
 

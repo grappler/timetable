@@ -8,17 +8,49 @@ class Timetable_Template {
 	}
 
 
-	public function duration_percentage() {
+	public function duration_time( $id ) {
 
-		$session_stored_meta = get_post_meta( $post->ID );
+		$session_stored_meta = get_post_meta( $id );
 
-		$session_day   = $session_stored_meta['session-day'];
-		$session_start = $session_stored_meta['session-start'];
-		$session_end   = $session_stored_meta['session-end'];
+		$session_day   = $session_stored_meta['session-day'][0];
+		$session_start = $session_stored_meta['session-start'][0];
+		$session_end   = $session_stored_meta['session-end'][0];
 
 		$minutes_day = 1440; // 24h = 1440min
 
-		$duration = hm_to_m( $session_end ) - hm_to_m( $session_start );
+		$duration = $this->hm_to_m( $session_end ) - $this->hm_to_m( $session_start );
+
+		echo $duration;
+
+	}
+
+
+	public function start_time( $id ) {
+
+		$session_stored_meta = get_post_meta( $id );
+
+		$session_start = $session_stored_meta['session-start'][0];
+
+		$start_day   = '00:00';
+		$minutes_day = 1440; // 24h = 1440min
+
+		$duration = $this->hm_to_m( $session_start ) - $this->hm_to_m( $start_day );
+
+		echo $duration;
+
+	}
+
+	public function duration_percentage( $id ) {
+
+		$session_stored_meta = get_post_meta( $id );
+
+		$session_day   = $session_stored_meta['session-day'][0];
+		$session_start = $session_stored_meta['session-start'][0];
+		$session_end   = $session_stored_meta['session-end'][0];
+
+		$minutes_day = 1440; // 24h = 1440min
+
+		$duration = $this->hm_to_m( $session_end ) - $this->hm_to_m( $session_start );
 
 		$percentage =  100 / $minutes_day * $duration;
 
@@ -26,16 +58,16 @@ class Timetable_Template {
 
 	}
 
-	public function start_percentage() {
+	public function start_percentage( $id ) {
 
-		$session_stored_meta = get_post_meta( $post->ID );
+		$session_stored_meta = get_post_meta( $id );
 
-		$session_start = $session_stored_meta['session-start'];
+		$session_start = $session_stored_meta['session-start'][0];
 
 		$start_day   = '00:00';
 		$minutes_day = 1440; // 24h = 1440min
 
-		$duration = hm_to_m( $session_start ) - hm_to_m( $start_day );
+		$duration = $this->hm_to_m( $session_start ) - $this->hm_to_m( $start_day );
 
 		$percentage =  100 / $minutes_day * $duration;
 

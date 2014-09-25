@@ -15,7 +15,11 @@ class Timetable_Shortcodes {
 	 */
 	public function timetable( $atts, $content = null ) {
 
-		timetable_get_template_part( 'timetable' );
+		ob_start();
+
+		return timetable_get_template_part( 'timetable' );
+
+		return ob_get_clean();
 
 	}
 

@@ -31,21 +31,6 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'TIMETABLE_DIR', plugin_dir_path( __FILE__ ) );
 
-//add_action('admin_menu', 'register_my_custom_submenu_page');
-
-function register_my_custom_submenu_page() {
-
-	add_submenu_page(
-		'edit.php?post_type=session',
-		'My Custom Submenu Page',
-		'My Custom Submenu Page',
-		'manage_options',
-		'my-custom-submenu-page',
-		'my_custom_submenu_page_callback'
-	);
-
-}
-
 /**
  * The plugin activation class that runs during plugin activation.
  */

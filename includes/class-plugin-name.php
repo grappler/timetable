@@ -166,6 +166,8 @@ class Plugin_Name {
 			 * of the plugin.
 			 */
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-timetable-template-loader.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-timetable-shortcodes.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/functions.php';
 
 		}
 

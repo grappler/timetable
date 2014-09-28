@@ -89,7 +89,7 @@ class Timetable_Meta_Box {
 				update_post_meta(
 					$post_id,
 					'session-day',
-					$_POST[ 'session-day' ]
+					$_POST[ 'session-day' ] // @TODO sanitize
 				);
 			}
 

@@ -31,15 +31,16 @@ function timetable_get_grouped_sessions() {
 
 	// WP_Query arguments
 	$args = array (
-		'post_type'              => 'session',
-		'post_status'            => 'publish'
+		'post_type'      => 'session',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
 	);
 
 	// The Query
 	$sessions = get_posts( $args );
 
 	// The Loop
-	if ( !empty( $sessions ) ) {
+	if ( ! empty( $sessions ) ) {
 
 		$grouped_posts = array(
 			'monday'    => array(),
@@ -56,31 +57,31 @@ function timetable_get_grouped_sessions() {
 			$session_day = get_post_meta( $session_post->ID, 'session-day', true );
 
 			switch( $session_day ) {
-				case '1' :
+				case 'monday' :
 					$grouped_posts['monday'][] = $session_post;
 					break;
 
-				case '2' :
+				case 'tuesday' :
 					$grouped_posts['tuesday'][] = $session_post;
 					break;
 
-				case '3' :
+				case 'wednesday' :
 					$grouped_posts['wednesday'][] = $session_post;
 					break;
 
-				case '4' :
+				case 'thursday' :
 					$grouped_posts['thursday'][] = $session_post;
 					break;
 
-				case '5' :
+				case 'friday' :
 					$grouped_posts['friday'][] = $session_post;
 					break;
 
-				case '6' :
+				case 'saturday' :
 					$grouped_posts['saturday'][] = $session_post;
 					break;
 
-				case '7' :
+				case 'sunday' :
 					$grouped_posts['sunday'][] = $session_post;
 					break;
 
@@ -89,7 +90,7 @@ function timetable_get_grouped_sessions() {
 	} else {
 		// no posts found
 	}
-	
+
 	//var_dump( $grouped_posts );
 
 	return $grouped_posts;

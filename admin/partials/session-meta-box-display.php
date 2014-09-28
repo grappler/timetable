@@ -2,13 +2,13 @@
 	<div class="session-row-content">
 		<label for="session-day" class="session-row-title"><?php _e( 'Day', 'timetable' )?></label>
 		<select name="session-day" id="session-day">
-			<option value="1" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '1' ); ?>><?php _e( 'Monday' )?></option>
-			<option value="2" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '2' ); ?>><?php _e( 'Tuesday')?></option>
-			<option value="3" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '3' ); ?>><?php _e( 'Wednesday' )?></option>
-			<option value="4" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '4' ); ?>><?php _e( 'Thursday' )?></option>
-			<option value="5" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '5' ); ?>><?php _e( 'Friday' )?></option>
-			<option value="6" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '6' ); ?>><?php _e( 'Saturday' )?></option>
-			<option value="7" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], '7' ); ?>><?php _e( 'Sunday' )?></option>
+			<option value="monday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'monday' ); ?>><?php _e( 'Monday' )?></option>
+			<option value="tuesday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'tuesday' ); ?>><?php _e( 'Tuesday')?></option>
+			<option value="wednesday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'wednesday' ); ?>><?php _e( 'Wednesday' )?></option>
+			<option value="thursday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'thursday' ); ?>><?php _e( 'Thursday' )?></option>
+			<option value="friday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'friday' ); ?>><?php _e( 'Friday' )?></option>
+			<option value="saturday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'saturday' ); ?>><?php _e( 'Saturday' )?></option>
+			<option value="sunday" <?php if ( isset ( $session_stored_meta['session-day'] ) ) selected( $session_stored_meta['session-day'][0], 'sunday' ); ?>><?php _e( 'Sunday' )?></option>
 		</select>
 	</div>
 	<div class="session-row-content">

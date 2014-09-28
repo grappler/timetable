@@ -142,7 +142,12 @@
 	letter-spacing: 0;
 	text-align: left;
 	overflow: hidden;
-	height: 100%;
+}
+.timetable-grid .hentry.vevent span {
+	padding: 4px 6px;
+	margin: 0;
+	text-align: left;
+	display: block;
 }
 .timetable-grid .hentry.vevent a {
 	color: #333;

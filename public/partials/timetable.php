@@ -11,7 +11,7 @@
 
 	<div class="timetable-inner-grid-wrapper">
 
-		<div class="timetable-grid-outer-wrap tribe-clearfix">
+		<div class="timetable-grid-outer-wrap timetable-clearfix">
 			<div class="timetable-grid-inner-wrap">
 				<?php timetable_get_template_part( 'rows' ) ?>
 			</div><!-- .timetable-grid-inner-wrap -->

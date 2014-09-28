@@ -102,7 +102,7 @@ function timetable_get_grouped_sessions() {
 function print_session_template( $session_post ) {
 	$custom_fields = get_post_custom( $session_post->ID );
 	?>
-	<div id="tribe-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-tribe_events tribe-clearfix tribe-dayspan1 tribe-event-overlap tribe-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
+	<div id="timetable-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-timetable_events timetable-clearfix timetable-event-overlap timetable-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
 	<div class="hentry vevent">
 		<h3 class="entry-title summary"><a href=""><?php echo get_the_title( $session_post->ID ); ?></a></h3>
 		<span>

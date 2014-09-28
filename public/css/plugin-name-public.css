@@ -4,10 +4,10 @@
  */
 
 /* Miscellaneous Helper Classes */
-.clearfix:before, .tribe-clearfix:before, .clearfix:after, .tribe-clearfix:after {content: ""; display: table;}
-.clearfix:after, .tribe-clearfix:after {clear: both;}
-.clearfix, .tribe-clearfix {zoom: 1;}
-.tribe-clear {clear: both;}
+.clearfix:before, .timetable-clearfix:before, .clearfix:after, .timetable-clearfix:after {content: ""; display: table;}
+.clearfix:after, .timetable-clearfix:after {clear: both;}
+.clearfix, .timetable-clearfix {zoom: 1;}
+.timetable-clear {clear: both;}
 .timetable-visuallyhidden {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -18,14 +18,14 @@
 	position: absolute;
 	width: 1px;
 }
-.tribe-hide-text {
+.timetable-hide-text {
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 }
-.tribe-events-error {display:none;}
-.tribe-events-multi-event-day {color: #0f81bb;}
-#tribe-events-content .tribe-events-abbr {border-bottom: 0; cursor: default;}
+.timetable-events-error {display:none;}
+.timetable-events-multi-event-day {color: #0f81bb;}
+#timetable-events-content .timetable-events-abbr {border-bottom: 0; cursor: default;}
 
 /* = Week Grid Template Styles
    @ Template: week.php
@@ -94,7 +94,7 @@
 	border-left: 0;
 }
 
-.tribe-grid-allday .column.first,
+.timetable-grid-allday .column.first,
 .timetable-grid-hours div {
 	height: 60px;
 	position: relative;
@@ -160,8 +160,8 @@
 	overflow: hidden;
 	outline: none;
 }
-.tribe-grid-allday .hentry.vevent > div,
-.timetable-grid-body div[id*="tribe-events-event-"] .hentry.vevent {
+
+.timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent {
 	width: 100%;
 	background-color: #e6e6e6;
 	background-color: rgba(221, 221, 221, .75);
@@ -170,74 +170,10 @@
 			border-radius: 3px;
 	cursor: pointer;
 }
-.tribe-grid-allday .hentry.vevent > div:hover,
-.timetable-grid-body div[id*="tribe-events-event-"] .hentry.vevent:hover {
+
+.timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent:hover {
 	background-color: #e2e2e2;
 	background-color: rgba(221, 221, 221, .85);
-}
-
-/* All day */
-.tribe-grid-allday {
-	position: relative;
-	background-color: #f9f9f9;
-	border-bottom: 1px solid #bbb;
-}
-.tribe-grid-allday .column {
-	min-height: 60px;
-}
-.tribe-grid-allday .column.first {
-	top: 0;
-}
-.tribe-grid-allday .column.first span {
-	position: absolute;
-	top: 50%;
-	margin-top: -12px;
-	width: 30px;
-	left: 50%;
-	margin-left: -15px;
-}
-.tribe-grid-allday .hentry.vevent {
-	margin: 0;
-	position: relative;
-	padding: 4px;
-}
-.tribe-grid-allday .hentry.vevent ~ .hentry.vevent,
-.tribe-grid-allday .tribe-event-placeholder ~ .hentry.vevent {
-	padding: 0 4px 4px;
-}
-.tribe-grid-allday .hentry.vevent h3.entry-title {
-	padding: 0;
-}
-/* Truncated all day titles */
-.tribe-grid-allday .hentry.vevent h3.entry-title a.url {
-	padding: 8px 6px;
-	display: inline-block;
-	zoom: 1;
-	*display: inline;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	position: relative;
-	z-index: 1;
-}
-
-.tribe-grid-allday .hentry.vevent.tribe-dayspan2 > div {
-	width: 200%;
-}
-.tribe-grid-allday .hentry.vevent.tribe-dayspan3 > div {
-	width: 300%;
-}
-.tribe-grid-allday .hentry.vevent.tribe-dayspan4 > div {
-	width: 400%;
-}
-.tribe-grid-allday .hentry.vevent.tribe-dayspan5 > div {
-	width: 500%;
-}
-.tribe-grid-allday .hentry.vevent.tribe-dayspan6 > div {
-	width: 600%;
-}
-.tribe-grid-allday .hentry.vevent.tribe-dayspan7 > div {
-	width: 700%;
 }
 
 /* Actual Event Styles */
@@ -245,7 +181,7 @@
 	width: 100%;
 	height: 100%;
 }
-.timetable-grid-body div[id*="tribe-events-event-"] {
+.timetable-grid-body div[id*="timetable-events-event-"] {
 	font-weight: bold;
 	line-height: 1.25;
 	position: absolute;
@@ -253,18 +189,18 @@
 	width: 100%;
 	padding: 4px;
 }
-.timetable-grid-body div[id*="tribe-events-event-"]:hover {
+.timetable-grid-body div[id*="timetable-events-event-"]:hover {
 	z-index: 800;
 }
 
 /* Tooltip */
-.timetable-grid div[id*="tribe-events-tooltip-"] {
+.timetable-grid div[id*="timetable-events-tooltip-"] {
 	text-align: left;
 }
-.timetable-grid-body .tribe-events-tooltip .tribe-events-event-body {
+.timetable-grid-body .timetable-events-tooltip .timetable-events-event-body {
 	position: relative;
 }
-.timetable-grid-body .tribe-events-tooltip .tribe-events-arrow {
+.timetable-grid-body .timetable-events-tooltip .timetable-events-arrow {
 	width: 11px;
 	height: 18px;
 	background-position: -33px 0;
@@ -272,14 +208,14 @@
 	left: -11px;
 	top: 6px;
 }
-.timetable-grid-body .tribe-events-right .tribe-events-tooltip .tribe-events-arrow {
+.timetable-grid-body .timetable-events-right .timetable-events-tooltip .timetable-events-arrow {
 	left: auto;
 	right: -11px;
 	background-position: -20px 0;
 }
 
 /* Specific Classes */
-.tribe-week-today {
+.timetable-week-today {
 	background-color: #f9f9f9;
 }
 
@@ -292,12 +228,12 @@
 	position: absolute;
 	width: 100%;
 }
-.tribe-week-grid-block {
+.timetable-week-grid-block {
 	height: 60px !important;
 	padding: 0 !important;
 	margin: 0 !important;
 }
-.tribe-week-grid-block div {
+.timetable-week-grid-block div {
 	height: 30px;
 	margin-bottom: 30px;
 	border-bottom: 1px dotted #ddd;
@@ -305,6 +241,6 @@
 }
 
 /* custom styles */
-.tribe-events-column {
+.timetable-events-column {
 	height: 1440px;
 }

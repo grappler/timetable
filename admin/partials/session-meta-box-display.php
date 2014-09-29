@@ -20,15 +20,18 @@
 		<input type="text" name="session-end" id="session-end" value="<?php if ( isset ( $session_stored_meta['session-end'] ) ) echo esc_attr( $session_stored_meta['session-end'][0] ); ?>" />
 	</div>
 	<script>
-		jQuery(document).ready(function($) {
-			$('#session-start').timepicker();
+		jQuery(function($) {
+			$('#session-start').timepicker({
+				'minTime': '12:00am',
+				'maxTime': '12:00pm'
+			});
 			$('#session-end').timepicker({
+				'minTime': '12:00am',
+				'maxTime': '12:00pm',
 				'showDuration': true
 			});
-			$(".session-start").on('changeTime', function () {
-				$(this).closest('tr').find('.session-start:first').timepicker('option', {
-					'minTime': $(this).val()
-				});
+			$('#session-start').on('changeTime', function() {
+				$('#session-end').timepicker('option', 'minTime', $('#session-start').val());
 			});
 		});
 	</script>

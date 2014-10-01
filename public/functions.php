@@ -57,31 +57,31 @@ function timetable_get_grouped_sessions() {
 			$session_day = get_post_meta( $session_post->ID, 'session-day', true );
 
 			switch( $session_day ) {
-				case 'monday' :
+				case 1 :
 					$grouped_posts['monday'][] = $session_post;
 					break;
 
-				case 'tuesday' :
+				case 2 :
 					$grouped_posts['tuesday'][] = $session_post;
 					break;
 
-				case 'wednesday' :
+				case 3 :
 					$grouped_posts['wednesday'][] = $session_post;
 					break;
 
-				case 'thursday' :
+				case 4 :
 					$grouped_posts['thursday'][] = $session_post;
 					break;
 
-				case 'friday' :
+				case 5 :
 					$grouped_posts['friday'][] = $session_post;
 					break;
 
-				case 'saturday' :
+				case 6 :
 					$grouped_posts['saturday'][] = $session_post;
 					break;
 
-				case 'sunday' :
+				case 0 :
 					$grouped_posts['sunday'][] = $session_post;
 					break;
 
@@ -117,6 +117,6 @@ function print_session_template( $session_post ) {
 		</span>
 	</div>
 </div>
-	
+
 	<?php
 }

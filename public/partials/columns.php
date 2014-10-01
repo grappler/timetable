@@ -1,46 +1,15 @@
 <?php
 
 $grouped_posts = timetable_get_grouped_sessions();
+//$start_of_week = get_option( 'start_of_week' );
+//wp_locale->get_weekday( $weekday_number );
+//$dateweekday_abbrev = $wp_locale->get_weekday_abbrev( $weekday_number );
 
-// split them into 7 arrays ?>
-<div title="Monday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['monday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Tuesday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['tuesday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Wednesday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['wednesday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Thursday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['thursday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Friday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['friday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Saturday" class="timetable-events-mobile-day column timetable-events-column timetable-events-has-events">
-	<?php foreach( $grouped_posts['saturday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
-
-<div title="Sunday" class="timetable-events-mobile-day column timetable-events-column">
-	<?php foreach( $grouped_posts['sunday'] as $day_post ) {
-		print_session_template( $day_post );
-	} ?>
-</div><!-- hourly column -->
+// split them into 7 arrays
+foreach ( $grouped_posts as $day => $day_posts ) { ?>
+	<div title="<?php echo $day; ?>" class="timetable-mobile-day column timetable-column">
+		<?php foreach( $grouped_posts[ $day ] as $day_post ) {
+			print_session_template( $day_post );
+		} ?>
+	</div><!-- hourly column -->
+<?php }

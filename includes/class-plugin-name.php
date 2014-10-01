@@ -141,6 +141,8 @@ class Plugin_Name {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-timetable-taxonomy-location.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/functions.php';
+
 		if ( is_admin() ) {
 
 			/**

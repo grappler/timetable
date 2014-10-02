@@ -42,50 +42,22 @@ function timetable_get_grouped_sessions() {
 	// The Loop
 	if ( ! empty( $sessions ) ) {
 
-		$grouped_posts = array(
-			'monday'    => array(),
-			'tuesday'   => array(),
-			'wednesday' => array(),
-			'thursday'  => array(),
-			'friday'    => array(),
-			'saturday'  => array(),
-			'sunday'    => array()
-		);
+		$week = timetable_get_week();
+
+		foreach ( $week as $key => $value ) {
+			$grouped_posts[ $key ] = array();
+		}
 
 		foreach ( $sessions as $session_post ) {
 
 			$session_day = get_post_meta( $session_post->ID, 'session-day', true );
 
-			switch( $session_day ) {
-				case 1 :
-					$grouped_posts['monday'][] = $session_post;
-					break;
-
-				case 2 :
-					$grouped_posts['tuesday'][] = $session_post;
-					break;
-
-				case 3 :
-					$grouped_posts['wednesday'][] = $session_post;
-					break;
-
-				case 4 :
-					$grouped_posts['thursday'][] = $session_post;
-					break;
-
-				case 5 :
-					$grouped_posts['friday'][] = $session_post;
-					break;
-
-				case 6 :
-					$grouped_posts['saturday'][] = $session_post;
-					break;
-
-				case 0 :
-					$grouped_posts['sunday'][] = $session_post;
-					break;
-
+			foreach( $week as $key => $value ) {
+				if ( $value['weekday_number'] == $session_day) {
+					$grouped_posts[ $key ][] = $session_post;
+				}
 			}
+
 		}
 	} else {
 		// no posts found

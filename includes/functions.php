@@ -16,10 +16,10 @@ function timetable_get_week(){
 		$weekday_abbrev = $wp_locale->get_weekday_abbrev( $weekday_whole );
 
 		// have only keys
-		$weekday[ 'weekday_number' ] = intval( $weekday_number );
-		$weekday[ 'weekday_whole' ] = esc_attr( $weekday_whole );
+		$weekday[ 'weekday_number' ]  = intval( $weekday_number );
+		$weekday[ 'weekday_whole' ]   = esc_attr( $weekday_whole );
 		$weekday[ 'weekday_initial' ] = esc_attr( $weekday_initial );
-		$weekday[ 'weekday_abbrev' ] = esc_attr( $weekday_abbrev );
+		$weekday[ 'weekday_abbrev' ]  = esc_attr( $weekday_abbrev );
 
 		$week_days[ strtolower( $weekday_whole ) ] = $weekday;
 	}

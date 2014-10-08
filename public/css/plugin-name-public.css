@@ -67,7 +67,6 @@
 
 /* columns & structure */
 .timetable-inner-grid-wrapper {
-	height: 500px;
 	position: relative;
 }
 
@@ -240,7 +239,10 @@
 	border-top: 1px solid #ddd;
 }
 
-/* custom styles */
-.timetable-column {
+
+.timetable-column.300-minutes{
+	height: 300px;
+}
+.timetable-column.1440-minutes{
 	height: 1440px;
 }

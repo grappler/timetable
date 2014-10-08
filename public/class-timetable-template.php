@@ -28,13 +28,14 @@ class Timetable_Template {
 	public function start_time( $id ) {
 
 		$session_stored_meta = get_post_meta( $id );
+		$data = timetable_get_static_data();
 
 		$session_start = $session_stored_meta['session-start'][0];
 
-		$start_day   = '00:00';
-		$minutes_day = 1440; // 24h = 1440min
+		$start_day   = $data['time']['lower'];
+		$minutes_day = $data['time']['minutes']; // 24h = 1440min
 
-		$duration = $this->hm_to_m( $session_start ) - $this->hm_to_m( $start_day );
+		$duration = $this->hm_to_m( $session_start ) - ( $start_day / 60 );
 
 		echo $duration;
 

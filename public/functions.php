@@ -71,8 +71,19 @@ function timetable_get_grouped_sessions() {
 	// wp_reset_postdata();
 }
 
+function seconds_from_time( $time ) {
+	list( $h, $m ) = explode(':', $time);
+	return ($h * 3600) + ($m * 60);
+}
+
 function print_session_template( $session_post ) {
 	$custom_fields = get_post_custom( $session_post->ID );
+	$data = timetable_get_static_data();
+	$session_start = seconds_from_time( $custom_fields['session-start'][0] );
+	$session_end = seconds_from_time( $custom_fields['session-end'][0] );
+	if ( ( $data['time']['lower'] - 1 ) > $session_start || ( $data['time']['upper'] + 1 ) < $session_end ) {
+		return;
+	}
 	?>
 	<div id="timetable-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-timetable_events timetable-clearfix timetable-event-overlap timetable-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
 	<div class="hentry vevent">
@@ -80,7 +91,7 @@ function print_session_template( $session_post ) {
 		<span>
 			<?php //echo $custom_fields[ 'session-day' ][0];
 			?>
-			<?php echo $custom_fields[ 'session-start' ][0]; ?> - <?php echo $custom_fields[ 'session-end' ][0]; ?>
+			<?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?>
 			<?php //echo timetable_duration_percentage( $session_post->ID );
 			?>
 			<?php //echo timetable_start_percentage( $session_post->ID );

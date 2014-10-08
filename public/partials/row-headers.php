@@ -1,24 +1,7 @@
-<div class="time-row-12AM">12:00 am</div>
-<div class="time-row-1AM">1:00 am</div>
-<div class="time-row-2AM">2:00 am</div>
-<div class="time-row-3AM">3:00 am</div>
-<div class="time-row-4AM">4:00 am</div>
-<div class="time-row-5AM">5:00 am</div>
-<div class="time-row-6AM">6:00 am</div>
-<div class="time-row-7AM">7:00 am</div>
-<div class="time-row-8AM">8:00 am</div>
-<div class="time-row-9AM">9:00 am</div>
-<div class="time-row-10AM">10:00 am</div>
-<div class="time-row-11AM">11:00 am</div>
-<div class="time-row-12PM">12:00 pm</div>
-<div class="time-row-1PM">1:00 pm</div>
-<div class="time-row-2PM">2:00 pm</div>
-<div class="time-row-3PM">3:00 pm</div>
-<div class="time-row-4PM">4:00 pm</div>
-<div class="time-row-5PM">5:00 pm</div>
-<div class="time-row-6PM">6:00 pm</div>
-<div class="time-row-7PM">7:00 pm</div>
-<div class="time-row-8PM">8:00 pm</div>
-<div class="time-row-9PM">9:00 pm</div>
-<div class="time-row-10PM">10:00 pm</div>
-<div class="time-row-11PM">11:00 pm</div>
+<?php
+$time_row = timetable_get_day_times();
+
+// split them into 7 arrays
+foreach ( $time_row as $time => $formated_time ) { ?>
+	<div class="time-row time-row-<?php echo $time; ?>"><?php echo $formated_time; ?></div>
+<?php }

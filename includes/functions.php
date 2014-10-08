@@ -27,3 +27,23 @@ function timetable_get_week(){
 	return $week_days;
 
 }
+
+function timetable_get_day_times( $lower = 0, $upper = 86400, $step = 3600, $format = '' ) {
+	$times = array();
+
+	if ( empty( $format ) ) {
+		$format = 'g:i a';
+	}
+
+	foreach ( range( $lower, $upper, $step ) as $increment ) {
+		$increment = gmdate( 'H:i', $increment );
+
+		list( $hour, $minutes ) = explode( ':', $increment );
+
+		$date = new DateTime( $hour . ':' . $minutes );
+
+		$times[(string) $increment] = $date->format( $format );
+	}
+
+	return $times;
+}

@@ -116,7 +116,6 @@
 	*display: inline;
 	float: left;
 	vertical-align: top;
-	width: 14.2857%;
 	text-align: center;
 	border-left: 1px solid #bbb;
 }
@@ -240,9 +239,16 @@
 }
 
 
-.timetable-column.300-minutes{
+.timetable-grid .timetable-grid-content-wrap .column.days-7 {
+	width: 14.2857%;
+}
+.timetable-grid .timetable-grid-content-wrap .column.days-5 {
+	width: 19.9999%;
+}
+
+.timetable-column.minutes-300 {
 	height: 300px;
 }
-.timetable-column.1440-minutes{
+.timetable-column.minutes-1440 {
 	height: 1440px;
 }

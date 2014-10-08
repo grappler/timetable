@@ -34,6 +34,9 @@ function timetable_get_grouped_sessions() {
 		'post_type'      => 'session',
 		'post_status'    => 'publish',
 		'posts_per_page' => -1,
+		'meta_key'       => 'session-start',
+		'orderby'        => 'meta_value_num',
+		'order'          => 'ASC'
 	);
 
 	// The Query
@@ -87,7 +90,7 @@ function print_session_template( $session_post ) {
 	?>
 	<div id="timetable-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-timetable_events timetable-clearfix timetable-event-overlap timetable-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
 	<div class="hentry vevent">
-		<h3 class="entry-title summary"><a href=""><?php echo get_the_title( $session_post->ID ); ?></a></h3>
+		<h3 class="entry-title summary"><a href="<?php echo get_permalink( $session_post->ID ); ?>"><?php echo get_the_title( $session_post->ID ); ?></a></h3>
 		<span>
 			<?php //echo $custom_fields[ 'session-day' ][0];
 			?>

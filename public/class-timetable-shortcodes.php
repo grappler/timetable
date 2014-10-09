@@ -5,6 +5,9 @@ class Timetable_Shortcodes {
 	public function __construct() {
 
 		add_shortcode( 'timetable', array( $this, 'timetable' ) );
+		// Filter video output to video post
+		add_filter( 'the_content',  array( $this, 'get_video_output' ) );
+
 	}
 
 	/**
@@ -21,6 +24,22 @@ class Timetable_Shortcodes {
 
 		return ob_get_clean();
 
+	}
+
+	/**
+	 * Add video to Video post
+	 *
+	 * Add video html to flowplayer video posts
+	 *
+	 * @since    1.3.0
+	 */
+	public function get_video_output( $content ) {
+
+		if( is_singular( 'session' ) || is_post_type_archive( 'session' ) || is_tax( 'location' ) && is_main_query() ) {
+			$atts['id'] = get_the_ID();
+			$content .= timetable_get_template_part( 'single-session' );
+		}
+		return $content;
 	}
 
 }

@@ -4,7 +4,6 @@ class Timetable_Template {
 
 	public function __construct() {
 
-
 	}
 
 
@@ -87,4 +86,3 @@ class Timetable_Template {
 
 
 }
-new Timetable_Shortcodes;

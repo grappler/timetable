@@ -90,15 +90,11 @@ function print_session_template( $session_post ) {
 	?>
 	<div id="timetable-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-timetable_events timetable-clearfix timetable-event-overlap timetable-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
 	<div class="hentry vevent">
-		<h3 class="entry-title summary"><a href="<?php echo get_permalink( $session_post->ID ); ?>"><?php echo get_the_title( $session_post->ID ); ?></a></h3>
+		<h3 class="entry-title summary">
+			<a href="<?php echo get_permalink( $session_post->ID ); ?>"><?php echo get_the_title( $session_post->ID ); ?></a>
+		</h3>
 		<span>
-			<?php //echo $custom_fields[ 'session-day' ][0];
-			?>
 			<?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?>
-			<?php //echo timetable_duration_percentage( $session_post->ID );
-			?>
-			<?php //echo timetable_start_percentage( $session_post->ID );
-			?>
 			<?php echo get_the_term_list( $session_post->ID, 'location' ); ?>
 		</span>
 	</div>

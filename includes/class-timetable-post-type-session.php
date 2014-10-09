@@ -57,7 +57,7 @@ class Timetable_Post_Type_Session extends Gamajo_Post_Type {
 		);
 
 		$args = array(
-			'label'               => __( 'post_type', 'timetable' ),
+			'label'               => __( 'session', 'timetable' ),
 			'description'         => __( 'Post Type Description', 'timetable' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'author', ),
@@ -71,10 +71,10 @@ class Timetable_Post_Type_Session extends Gamajo_Post_Type {
 			'menu_position'       => 20,
 			'menu_icon'           => 'dashicons-schedule',
 			'can_export'          => true,
-			'has_archive'         => true,
+			'has_archive'         => false,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
-			'query_var'           => 'session',
+			'query_var'           => false,
 			'rewrite'             => false,
 			'capability_type'     => 'post',
 		);

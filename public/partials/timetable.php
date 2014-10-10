@@ -1,3 +1,4 @@
+<div class="timetable-responsive-wrap">
 <div class="timetable-grid clearfix">
 
 	<div class="timetable-grid-header clearfix">
@@ -32,3 +33,4 @@
 	</div><!-- .timetable-inner-grid-wrapper -->
 
 </div><!-- .timetable-grid -->
+</div><!-- .timetable-responsive-wrap -->

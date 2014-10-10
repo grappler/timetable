@@ -30,10 +30,17 @@
 /* = Week Grid Template Styles
    @ Template: week.php
 =============================================*/
+/* scroll on mobile devices */
+.timetable-responsive-wrap {
+	overflow-y: auto;
+	width: 100%;
+}
+
 /* grid structure */
 .timetable-grid {
 	border: 1px solid #bbb;
 	font-size: 12px;
+	min-width: 532px;
 	width: 100%;
 	position: relative;
 	margin: 0 auto .6em;
@@ -118,6 +125,7 @@
 	float: left;
 	vertical-align: top;
 	width: 14.2857%;
+	min-width: 70px;
 	text-align: center;
 	border-left: 1px solid #bbb;
 }
@@ -160,20 +168,23 @@
 	overflow: hidden;
 	outline: none;
 }
+.timetable-grid .hentry.vevent a:hover {
+	text-decoration: none;
+}
 
 .timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent {
 	width: 100%;
 	background-color: #e6e6e6;
-	background-color: rgba(221, 221, 221, .75);
-	border: 1px solid #ccc;
-	-webkit-border-radius: 3px;
-			border-radius: 3px;
+	background-color: rgba(221, 221, 221, .6);
 	cursor: pointer;
+	overflow: hidden;
 }
 
 .timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent:hover {
 	background-color: #e2e2e2;
-	background-color: rgba(221, 221, 221, .85);
+	background-color: rgba(221, 221, 221, 1);
+	border: 1px solid #ccc;
+	overflow: visible;
 }
 
 /* Actual Event Styles */

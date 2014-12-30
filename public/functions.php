@@ -79,7 +79,7 @@ function timetable_print_session_template( $id ) {
 	if ( $data['time']['lower'] >= $timetable_start_time || $data['time']['upper'] <= $timetable_end_time ) {
 		return;
 	} ?>
-	<div id="timetable-events-event-<?php echo $id; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo $duration_time; ?>" data-time="<?php echo $duration_time; ?>" class='timetable-clearfix timetable-week-event' style="display: block; height: <?php echo $duration_time; ?>px; top: <?php echo $start_time; ?>px;">
+	<div id="timetable-session-<?php echo $id; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo $duration_time; ?>" data-time="<?php echo $start_time; ?>" class="timetable-week-session timetable-clearfix timetable-session-duration-<?php echo $duration_time; ?> timetable-session-start-<?php echo $start_time; ?>" style="display: block; height: <?php echo $duration_time; ?>px; top: <?php echo $start_time; ?>px;">
 		<div class="hentry vevent">
 			<h3 class="entry-title summary">
 				<a href="<?php echo get_permalink( $id ); ?>"><?php echo get_the_title( $id ); ?></a>

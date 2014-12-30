@@ -18,14 +18,21 @@
 	position: absolute;
 	width: 1px;
 }
+
 .timetable-hide-text {
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 }
-.timetable-events-error {display:none;}
-.timetable-events-multi-event-day {color: #0f81bb;}
-#timetable-events-content .timetable-events-abbr {border-bottom: 0; cursor: default;}
+
+.timetable-events-multi-event-day {
+	color: #0f81bb;
+}
+
+#timetable-events-content .timetable-events-abbr {
+	border-bottom: 0;
+	cursor: default;
+}
 
 /* = Week Grid Template Styles
    @ Template: week.php
@@ -41,6 +48,7 @@
 	   -moz-box-sizing: border-box;
 			box-sizing: border-box;
 }
+
 .timetable-grid * {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -125,7 +133,6 @@
 }
 
 /* Global Week Event Styles */
-
 .timetable-grid .hentry.vevent {
 	padding:4px;
 }
@@ -142,6 +149,7 @@
 	overflow: hidden;
 	float: left;
 }
+
 .timetable-grid .hentry.vevent span {
 	padding: 4px 6px;
 	margin: 0;
@@ -161,7 +169,7 @@
 	outline: none;
 }
 
-.timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent {
+.timetable-grid-body div.timetable-week-session .hentry.vevent {
 	width: 100%;
 	background-color: #e6e6e6;
 	background-color: rgba(221, 221, 221, .75);
@@ -171,7 +179,7 @@
 	cursor: pointer;
 }
 
-.timetable-grid-body div[id*="timetable-events-event-"] .hentry.vevent:hover {
+.timetable-grid-body div.timetable-week-session .hentry.vevent:hover {
 	background-color: #e2e2e2;
 	background-color: rgba(221, 221, 221, .85);
 }
@@ -181,7 +189,7 @@
 	width: 100%;
 	height: 100%;
 }
-.timetable-grid-body div[id*="timetable-events-event-"] {
+.timetable-grid-body div.timetable-week-session {
 	font-weight: bold;
 	line-height: 1.25;
 	position: absolute;
@@ -189,7 +197,7 @@
 	width: 100%;
 	padding: 4px;
 }
-.timetable-grid-body div[id*="timetable-events-event-"]:hover {
+.timetable-grid-body div.timetable-week-session:hover {
 	z-index: 800;
 }
 
@@ -197,17 +205,21 @@
 .timetable-grid div[id*="timetable-events-tooltip-"] {
 	text-align: left;
 }
+
 .timetable-grid-body .timetable-events-tooltip .timetable-events-event-body {
 	position: relative;
 }
+
 .timetable-grid-body .timetable-events-tooltip .timetable-events-arrow {
 	width: 11px;
 	height: 18px;
 	background-position: -33px 0;
 	bottom: auto;
 	left: -11px;
+	
 	top: 6px;
 }
+
 .timetable-grid-body .timetable-events-right .timetable-events-tooltip .timetable-events-arrow {
 	left: auto;
 	right: -11px;
@@ -224,15 +236,18 @@
 	position: relative;
 	z-index: 10;
 }
+
 .timetable-grid-inner-wrap {
 	position: absolute;
 	width: 100%;
 }
+
 .timetable-week-grid-block {
 	height: 60px !important;
 	padding: 0 !important;
 	margin: 0 !important;
 }
+
 .timetable-week-grid-block div {
 	height: 30px;
 	margin-bottom: 30px;
@@ -240,10 +255,11 @@
 	border-top: 1px solid #ddd;
 }
 
-
+/* Grid for number of days */
 .timetable-grid .timetable-grid-content-wrap .column.days-7 {
 	width: 14.2857%;
 }
+
 .timetable-grid .timetable-grid-content-wrap .column.days-5 {
 	width: 19.9999%;
 }

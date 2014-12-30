@@ -3,10 +3,12 @@
  * included in this file.
  */
 
-.session-row-content label{
+.session-row-content label {
 	display: inline-block;
 	min-width: 45px;
 }
-.session-row-content select {
-	width: 189px;
+.session-row-content select,
+.session-row-content input,
+.ui-timepicker-wrapper {
+	min-width: 200px;
 }

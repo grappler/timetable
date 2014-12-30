@@ -137,7 +137,7 @@ class Timetable_Admin {
 		$screen = get_current_screen();
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		//if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.css', __FILE__ ), array(), '1.2.15' );
+			wp_enqueue_style( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.css', __FILE__ ), array(), '1.4.13' );
 		//}
 
 	}
@@ -162,7 +162,7 @@ class Timetable_Admin {
 		$screen = get_current_screen();
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		//if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_script( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.js', __FILE__ ), array( 'jquery' ), '1.2.15' );
+			wp_enqueue_script( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.js', __FILE__ ), array( 'jquery' ), '1.4.13' );
 		//}
 
 	}
@@ -170,16 +170,6 @@ class Timetable_Admin {
 	public function add_script() {
 ?>
 		<script>
-			jQuery('#timetable-start').timepicker({
-				'scrollDefaultNow': true,
-				'step': 15,
-				'timeFormat': 'G:i'
-			});
-			jQuery('#timetable-end').timepicker({
-				'scrollDefaultNow': true,
-				'step': 15,
-				'timeFormat': 'G:i'
-			});
 		</script>
 <?php
 	}

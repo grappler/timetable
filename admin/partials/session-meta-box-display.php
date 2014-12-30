@@ -26,8 +26,12 @@
 				'maxTime': '24:00',
 				'showDuration': true
 			});
-			$('#session-start').on('changeTime', function() {
-				$('#session-end').timepicker('option', 'minTime', $('#session-start').val());
+			$('#session-start').on('changeTime showTimepicker', function() {
+				$('#session-end').timepicker(
+					'option', {
+						'minTime': $('#session-start').val()
+					}
+				);
 			});
 		});
 	</script>

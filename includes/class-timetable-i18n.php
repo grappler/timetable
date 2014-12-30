@@ -3,12 +3,12 @@
 /**
  * Define a short description for what this class does (no period)
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/includes
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  * @license    GPL-2.0+
  * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
+ * @copyright  2014 Ulrich Pogson
  * @since      1.0.0
  */
 
@@ -17,11 +17,11 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/includes
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  */
-class Plugin_Name_i18n {
+class Timetable_i18n {
 
 	/**
 	 * Short description. (use period)

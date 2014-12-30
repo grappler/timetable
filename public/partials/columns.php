@@ -9,7 +9,7 @@ foreach ( $grouped_posts as $day => $day_posts ) {
 ?>
 	<div class="timetable-mobile-day column timetable-column minutes-<?php echo $number_minutes; ?> days-<?php echo $number_days; ?>">
 		<?php foreach( $grouped_posts[ $day ] as $day_post ) {
-			print_session_template( $day_post );
+			timetable_print_session_template( $day_post->ID );
 		} ?>
 	</div><!-- hourly column -->
 <?php }

@@ -3,12 +3,12 @@
 /**
  * Define a short description for what this class does (no period)
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/includes
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  * @license    GPL-2.0+
  * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
+ * @copyright  2014 Ulrich Pogson
  * @since      1.0.0
  */
 
@@ -17,11 +17,11 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/includes
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  */
-class Plugin_Name_Loader {
+class Timetable_Loader {
 
 	/**
 	 * Short description. (use period)
@@ -123,7 +123,7 @@ class Plugin_Name_Loader {
 		 * TODO:
 		 * This function is used to define the various hooks that are shared in the
 		 * both the dashboard and the public-facing areas of the plugin. This is
-		 * achieved via dependency injection by passing an instance of Plugin_Name
+		 * achieved via dependency injection by passing an instance of Timetable
 		 * into this class.
 		 */
 

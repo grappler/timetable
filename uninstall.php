@@ -5,7 +5,7 @@
  *
  * Long Description.
  *
- * @package Plugin_Name
+ * @package Timetable
  * @link    http://example.com
  * @since   1.0.0
  */

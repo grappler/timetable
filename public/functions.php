@@ -3,29 +3,28 @@
 // This function can live wherever is suitable in your plugin
 function timetable_get_template_part( $slug, $name = null, $load = true ) {
 	$timetable_template_loader = new Timetable_Template_Loader;
-	$timetable_template_loader->get_template_part( $slug, $name, $load );
+	return $timetable_template_loader->get_template_part( $slug, $name, $load );
 }
 
-function timetable_duration_time( $id ) {
+function timetable_start_time( $id, $measurement = 'minutes' ) {
 	$timetable_template = new Timetable_Template;
-	$timetable_template->duration_time( $id );
+	return $timetable_template->start_time( $id, $measurement );
 }
 
-function timetable_start_time( $id ) {
+function timetable_start_percentage( $id, $measurement = 'minutes' ) {
 	$timetable_template = new Timetable_Template;
-	$timetable_template->start_time( $id );
+	return $timetable_template->start_percentage( $id, $measurement );
 }
 
-function timetable_duration_percentage( $id ) {
+function timetable_duration_time( $id, $measurement = 'minutes' ) {
 	$timetable_template = new Timetable_Template;
-	$timetable_template->duration_percentage( $id );
+	return $timetable_template->duration_time( $id, $measurement );
 }
 
-function timetable_start_percentage( $id ) {
+function timetable_duration_percentage( $id, $measurement = 'minutes' ) {
 	$timetable_template = new Timetable_Template;
-	$timetable_template->start_percentage( $id );
+	return $timetable_template->duration_percentage( $id, $measurement );
 }
-
 
 function timetable_get_grouped_sessions() {
 
@@ -63,42 +62,33 @@ function timetable_get_grouped_sessions() {
 
 		}
 	} else {
-		// no posts found
+		return;
 	}
-
-	//var_dump( $grouped_posts );
 
 	return $grouped_posts;
 
-	// Restore original Post Data
-	// wp_reset_postdata();
 }
 
-function seconds_from_time( $time ) {
-	list( $h, $m ) = explode(':', $time);
-	return ($h * 3600) + ($m * 60);
-}
-
-function print_session_template( $session_post ) {
-	$custom_fields = get_post_custom( $session_post->ID );
-	$data = timetable_get_static_data();
-	$session_start = seconds_from_time( $custom_fields['session-start'][0] );
-	$session_end = seconds_from_time( $custom_fields['session-end'][0] );
-	if ( ( $data['time']['lower'] - 1 ) > $session_start || ( $data['time']['upper'] + 1 ) < $session_end ) {
+function timetable_print_session_template( $id ) {
+	$data                 = timetable_get_static_data();
+	$custom_fields        = get_post_custom( $id );
+	$duration_time        = timetable_duration_time( $id );
+	$start_time           = timetable_start_time( $id );
+	$timetable_start_time = timetable_start_time( $id, 'seconds' ) + $data['time']['lower'];
+	$timetable_end_time   = timetable_start_time( $id, 'seconds' ) + timetable_duration_time( $id, 'seconds' ) + $data['time']['lower'];
+	if ( $data['time']['lower'] >= $timetable_start_time || $data['time']['upper'] <= $timetable_end_time ) {
 		return;
-	}
-	?>
-	<div id="timetable-events-event-<?php echo $session_post->ID; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo timetable_duration_time( $session_post->ID ); ?>" data-time="<?php echo timetable_duration_time( $session_post->ID ); ?>" class='type-timetable_events timetable-clearfix timetable-event-overlap timetable-week-event' style="display: block; height: <?php echo timetable_duration_time( $session_post->ID ); ?>px; top: <?php echo timetable_start_time( $session_post->ID ); ?>px;">
-	<div class="hentry vevent">
-		<h3 class="entry-title summary">
-			<a href="<?php echo get_permalink( $session_post->ID ); ?>"><?php echo get_the_title( $session_post->ID ); ?></a>
-		</h3>
-		<span>
-			<?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?>
-			<?php echo get_the_term_list( $session_post->ID, 'location' ); ?>
-		</span>
+	} ?>
+	<div id="timetable-events-event-<?php echo $id; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo $duration_time; ?>" data-time="<?php echo $duration_time; ?>" class='timetable-clearfix timetable-week-event' style="display: block; height: <?php echo $duration_time; ?>px; top: <?php echo $start_time; ?>px;">
+		<div class="hentry vevent">
+			<h3 class="entry-title summary">
+				<a href="<?php echo get_permalink( $id ); ?>"><?php echo get_the_title( $id ); ?></a>
+			</h3>
+			<span>
+				<?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?>
+				<?php echo get_the_term_list( $id, 'location' ); ?>
+			</span>
+		</div>
 	</div>
-</div>
-
 	<?php
 }

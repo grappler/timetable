@@ -12,13 +12,15 @@ function timetable_get_week(){
 
 	for ( $weekday_count = 0; $weekday_count <= 6; $weekday_count++ ) {
 
-		$weekday_number = ( $weekday_count + $week_begins ) %7;
+		$weekday_number = ( $weekday_count + $week_begins ) % 7;
+
 		if ( ! in_array( $weekday_number, $data_days ) ) {
 			continue;
 		}
-		$weekday_whole = $wp_locale->get_weekday( $weekday_number );
+
+		$weekday_whole   = $wp_locale->get_weekday( $weekday_number );
 		$weekday_initial = $wp_locale->get_weekday_initial( $weekday_whole );
-		$weekday_abbrev = $wp_locale->get_weekday_abbrev( $weekday_whole );
+		$weekday_abbrev  = $wp_locale->get_weekday_abbrev( $weekday_whole );
 
 		// have only keys
 		$weekday[ 'weekday_number' ]  = intval( $weekday_number );
@@ -59,7 +61,8 @@ function timetable_get_static_data() {
 	$data['time']['step'] = 3600;
 	$data['time']['format'] = '';
 	$data['time']['minutes'] = ( $data['time']['upper'] - $data['time']['lower'] ) / 60;
-	$data['days'] = array( '0', '1', '2', '3', '4', '5', '6' );
+	$data['time']['seconds'] = $data['time']['upper'] - $data['time']['lower'];
+	$data['days'] = array( '1', '2', '3', '4', '5' );
 
 	return $data;
 }

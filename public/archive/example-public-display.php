@@ -3,12 +3,12 @@
 /**
  * Define a short description for what this file does (no period)
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/public/partials
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  * @license    GPL-2.0+
  * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
+ * @copyright  2014 Ulrich Pogson
  * @since      1.0.0
  */
 
@@ -17,9 +17,9 @@
  *
  * Define a longer description for the purpose of this file.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/public/partials
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  */
 ?>
 

@@ -6,7 +6,7 @@ class Timetable_Shortcodes {
 
 		add_shortcode( 'timetable', array( $this, 'timetable' ) );
 		// Filter video output to video post
-		add_filter( 'the_content',  array( $this, 'get_video_output' ) );
+		add_filter( 'the_content',  array( $this, 'get_single_session_output' ) );
 
 	}
 
@@ -33,14 +33,14 @@ class Timetable_Shortcodes {
 	 *
 	 * @since    1.3.0
 	 */
-	public function get_video_output( $content ) {
+	public function get_single_session_output( $content ) {
 
-		if( is_singular( 'session' ) || is_post_type_archive( 'session' ) || is_tax( 'location' ) && is_main_query() ) {
-			$atts['id'] = get_the_ID();
+		if ( is_singular( 'session' ) || is_post_type_archive( 'session' ) || is_tax( 'location' ) && is_main_query() ) {
 			$content .= timetable_get_template_part( 'single-session' );
 		}
 		return $content;
 	}
 
 }
+
 new Timetable_Shortcodes;

@@ -3,12 +3,12 @@
 /**
  * Define a short description for what this class does (no period)
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/public
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  * @license    GPL-2.0+
  * @link       http://example.com
- * @copyright  2014 Your Name or Company Name
+ * @copyright  2014 Ulrich Pogson
  * @since      1.0.0
  */
 
@@ -17,11 +17,11 @@
  *
  * Define a longer description for the purpose of this class.
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public
- * @author     Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/public
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  */
-class Plugin_Name_Public {
+class Timetable_Public {
 
 	/**
 	 * Short description. (use period)
@@ -57,15 +57,15 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Public_Loader as all of the hooks are defined
+		 * defined in Timetable_Public_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Public_Loader will then create the relationship
+		 * The Timetable_Public_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		 wp_enqueue_style( 'plugin-name-public', plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+		 wp_enqueue_style( 'timetable-public', plugin_dir_url( __FILE__ ) . 'css/timetable-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -82,15 +82,15 @@ class Plugin_Name_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Public_Loader as all of the hooks are defined
+		 * defined in Timetable_Public_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Plugin_Name_Public_Loader will then create the relationship
+		 * The Timetable_Public_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( 'plugin-name-public', plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, FALSE );
+		wp_enqueue_script( 'timetable-public', plugin_dir_url( __FILE__ ) . 'js/timetable-public.js', array( 'jquery' ), $this->version, FALSE );
 
 	}
 

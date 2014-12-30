@@ -1,177 +1,109 @@
 <?php
+
 /**
- * Plugin Name.
+ * Define a short description for what this class does (no period)
  *
- * @package   Timetable_Admin
- * @author    Your Name <email@example.com>
- * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @package    Timetable
+ * @subpackage Timetable/admin
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Ulrich Pogson
+ * @since      1.0.0
  */
 
 /**
- * Plugin class. This class should ideally be used to work with the
- * administrative side of the WordPress site.
+ * Define a short description for what this class does.
  *
- * If you're interested in introducing public-facing
- * functionality, then refer to `class-plugin-name.php`
+ * Define a longer description for the purpose of this class.
  *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package Timetable_Admin
- * @author  Your Name <email@example.com>
+ * @package    Timetable
+ * @subpackage Timetable/admin
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
  */
 class Timetable_Admin {
 
 	/**
-	 * Instance of this class.
+	 * Short description. (use period)
 	 *
 	 * @since    1.0.0
-	 *
-	 * @var      object
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
-	protected static $instance = null;
+	private $version;
 
 	/**
-	 * Slug of the plugin screen.
+	 * Short description. (use period)
 	 *
 	 * @since    1.0.0
-	 *
-	 * @var      string
+	 * @access   private
+	 * @var      type    $var    Description.
 	 */
-	protected $plugin_screen_hook_suffix = null;
-
-	/**
-	 * Initialize the plugin by loading admin scripts & styles and adding a
-	 * settings page and menu.
-	 *
-	 * @since     1.0.0
-	 */
-	private function __construct() {
-
-		/*
-		 * @TODO :
-		 *
-		 * - Uncomment following lines if the admin class should only be available for super admins
-		 */
-		/* if( ! is_super_admin() ) {
-			return;
-		} */
-
-		/*
-		 * Call $plugin_slug from public plugin class.
-		 *
-		 * @TODO:
-		 *
-		 * - Rename "Timetable" to the name of your initial plugin class
-		 *
-		 */
-		$plugin = Timetable::get_instance();
-		$this->plugin_slug = $plugin->get_plugin_slug();
-
-		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+	public function __construct( $version ) {
+		$this->version = $version;
 
 		// Add the options page and menu item.
-		//add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		//add_action( 'admin_menu', array( $this, 'add_plugin_settings_menu' ) );
 
 		// Add an action link pointing to the options page.
-		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . 'timetable.php' );
 		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+	}
 
-		/*
-		 * Define custom functionality.
+	/**
+	 * Short description. (use period)
+	 *
+	 * Long description.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_styles() {
+
+		/**
+		 * This function is provided for demonstration purposes only.
 		 *
-		 * Read more about actions and filters:
-		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-		 */
-		add_action( 'admin_footer', array( $this, 'add_script' ) );
-		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
-
-	}
-
-	/**
-	 * Return an instance of this class.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    object    A single instance of this class.
-	 */
-	public static function get_instance() {
-
-		/*
-		 * @TODO :
+		 * An instance of this class should be passed to the run() function
+		 * defined in Timetable_Admin_Loader as all of the hooks are defined
+		 * in that particular class.
 		 *
-		 * - Uncomment following lines if the admin class should only be available for super admins
+		 * The Timetable_Admin_Loader will then create the relationship
+		 * between the defined hooks and the functions defined in this
+		 * class.
 		 */
-		/* if( ! is_super_admin() ) {
-			return;
-		} */
 
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
-
-	/**
-	 * Register and enqueue admin-specific style sheet.
-	 *
-	 * @TODO:
-	 *
-	 * - Rename "Timetable" to the name your plugin
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
-	 */
-	public function enqueue_admin_styles() {
-
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
-			//return;
-		}
-
-		$screen = get_current_screen();
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		//if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.css', __FILE__ ), array(), '1.4.13' );
-		//}
+		// @TODO - Load only on those pages where needed
+		 wp_enqueue_style( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'css/timetable-admin' . $suffix . '.css', array(), $this->version, 'all' );
+		 wp_enqueue_style( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'css/jquery.timepicker' . $suffix . '.css', array(), '1.4.13', 'all' );
 
 	}
 
 	/**
-	 * Register and enqueue admin-specific JavaScript.
+	 * Short description. (use period)
 	 *
-	 * @TODO:
+	 * Long description.
 	 *
-	 * - Rename "Timetable" to the name your plugin
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
+	 * @since    1.0.0
 	 */
-	public function enqueue_admin_scripts() {
+	public function enqueue_scripts() {
 
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
-			//return;
-		}
+		/**
+		 * This function is provided for demonstration purposes only.
+		 *
+		 * An instance of this class should be passed to the run() function
+		 * defined in Timetable_Admin_Loader as all of the hooks are defined
+		 * in that particular class.
+		 *
+		 * The Timetable_Admin_Loader will then create the relationship
+		 * between the defined hooks and the functions defined in this
+		 * class.
+		 */
 
-		$screen = get_current_screen();
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		//if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_script( 'jquery-timepicker', plugins_url( 'assets/jquery-timepicker/jquery.timepicker' . $suffix . '.js', __FILE__ ), array( 'jquery' ), '1.4.13' );
-		//}
+		// @TODO - Load only on those pages where needed
+		wp_enqueue_script( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'js/timetable-admin' . $suffix . '.js', array(), $this->version, false );
+		wp_enqueue_script( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'js/jquery.timepicker' . $suffix . '.js', array( 'jquery' ), '1.4.13', false );
 
-	}
-
-	public function add_script() {
-?>
-		<script>
-		</script>
-<?php
 	}
 
 	/**
@@ -179,7 +111,7 @@ class Timetable_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function add_plugin_admin_menu() {
+	public function add_plugin_settings_menu() {
 
 		/*
 		 * Add a settings page for this plugin to the Settings menu.
@@ -196,11 +128,11 @@ class Timetable_Admin {
 		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'Settings', 'timetable' ),
+			__( 'Settings', 'timetable' ),
 			'manage_options',
-			$this->plugin_slug,
-			array( $this, 'display_plugin_admin_page' )
+			'timetable',
+			array( $this, 'display_plugin_settings_page' )
 		);
 
 	}
@@ -210,8 +142,8 @@ class Timetable_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function display_plugin_admin_page() {
-		include_once( 'views/admin.php' );
+	public function display_plugin_settings_page() {
+		include_once( 'partial/settings-display.php' );
 	}
 
 	/**
@@ -223,7 +155,7 @@ class Timetable_Admin {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=timetable' ) . '">' . __( 'Settings', 'timetable' ) . '</a>'
 			),
 			$links
 		);

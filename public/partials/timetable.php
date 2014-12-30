@@ -2,7 +2,7 @@
 
 	<div class="timetable-grid-header clearfix">
 		<div class="column first">
-			<span class="timetable-visuallyhidden">Hours</span>
+			<span class="timetable-visuallyhidden"><?php __( 'Hours', 'timetable' ); ?></span>
 		</div>
 		<div class="timetable-grid-content-wrap">
 			<?php timetable_get_template_part( 'column-header' ) ?>

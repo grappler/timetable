@@ -1,3 +1,30 @@
+<?php
+
+/**
+ * Define a short description for what this file does (no period)
+ *
+ * @package    Timetable
+ * @subpackage Timetable/admin/partials
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
+ * @license    GPL-2.0+
+ * @link       http://example.com
+ * @copyright  2014 Ulrich Pogson
+ * @since      1.0.0
+ */
+
+/**
+ * Define a short description for what this file does.
+ *
+ * Define a longer description for the purpose of this file.
+ *
+ * @package    Timetable
+ * @subpackage Timetable/admin/partials
+ * @author     Ulrich Pogson <ulrich@pogson.ch>
+ */
+?>
+
+<!-- This file is used to markup the dashboard-specific aspects of the plugin. -->
+
 <p>
 	<div class="session-row-content">
 		<label for="session-day" class="session-row-title"><?php _e( 'Day', 'timetable' )?></label>

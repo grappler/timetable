@@ -73,8 +73,8 @@ class Timetable_Admin {
 
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		// @TODO - Load only on those pages where needed
-		 wp_enqueue_style( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'css/timetable-admin' . $suffix . '.css', array(), $this->version, 'all' );
-		 wp_enqueue_style( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'css/jquery.timepicker' . $suffix . '.css', array(), '1.4.13', 'all' );
+		 wp_enqueue_style( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'css/timetable-admin' . /*$suffix*/ . '.css', array(), $this->version, 'all' );
+		 wp_enqueue_style( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'css/jquery.timepicker' . /*$suffix*/ . '.css', array(), '1.4.13', 'all' );
 
 	}
 
@@ -101,8 +101,8 @@ class Timetable_Admin {
 
 		$suffix  = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 		// @TODO - Load only on those pages where needed
-		wp_enqueue_script( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'js/timetable-admin' . $suffix . '.js', array(), $this->version, false );
-		wp_enqueue_script( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'js/jquery.timepicker' . $suffix . '.js', array( 'jquery' ), '1.4.13', false );
+		wp_enqueue_script( 'timetable-admin', plugin_dir_url( __FILE__ ) . 'js/timetable-admin' . /*$suffix*/ . '.js', array(), $this->version, false );
+		wp_enqueue_script( 'jquery-timepicker', plugin_dir_url( __FILE__ ) . 'js/jquery.timepicker' . /*$suffix*/ . '.js', array( 'jquery' ), '1.4.13', false );
 
 	}
 

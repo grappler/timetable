@@ -1,8 +1,8 @@
-<div class="timetable-grid clearfix">
+<div class="timetable-grid timetable-clearfix">
 
-	<div class="timetable-grid-header clearfix">
+	<div class="timetable-grid-header timetable-clearfix">
 		<div class="column first">
-			<span class="timetable-visuallyhidden"><?php __( 'Hours', 'timetable' ); ?></span>
+			<span class="screen-reader-text"><?php __( 'Hours', 'timetable' ); ?></span>
 		</div>
 		<div class="timetable-grid-content-wrap">
 			<?php timetable_get_template_part( 'column-header' ) ?>
@@ -18,7 +18,7 @@
 		</div><!-- .timetable-grid-outer-wrap -->
 
 		<!-- Days of the week & hours & events -->
-		<div class="timetable-grid-body clearfix">
+		<div class="timetable-grid-body timetable-clearfix">
 
 			<div class="column timetable-grid-hours">
 				<?php timetable_get_template_part( 'row-headers' ) ?>

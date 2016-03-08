@@ -80,13 +80,12 @@ function timetable_print_session_template( $id ) {
 		return;
 	} ?>
 	<div id="timetable-session-<?php echo $id; ?>" data-day="<?php echo $custom_fields[ 'session-day' ][0]; ?>" data-duration="<?php echo $duration_time; ?>" data-time="<?php echo $start_time; ?>" class="timetable-week-session timetable-clearfix timetable-session-duration-<?php echo $duration_time; ?> timetable-session-start-<?php echo $start_time; ?>" style="display: block; height: <?php echo $duration_time; ?>px; top: <?php echo $start_time; ?>px;">
-		<div class="hentry vevent">
-			<h3 class="entry-title summary">
+		<div class="single-session hentry vevent">
+			<h3 class="entry-title">
 				<a href="<?php echo get_permalink( $id ); ?>"><?php echo get_the_title( $id ); ?></a>
 			</h3>
-			<span>
-				<?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?>
-				<?php echo get_the_term_list( $id, 'location' ); ?>
+			<div class="session-time"><?php echo $custom_fields['session-start'][0]; ?> - <?php echo $custom_fields['session-end'][0]; ?></div>
+			<div class="session-location"><?php echo get_the_term_list( $id, 'location' ); ?></div>
 			</span>
 		</div>
 	</div>

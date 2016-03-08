@@ -4,6 +4,9 @@ $grouped_posts = timetable_get_grouped_sessions();
 $number_minutes = $data['time']['minutes'];
 $number_days = count( $data['days'] );
 
+if ( ! is_array( $grouped_posts ) ) {
+	return;
+}
 // split them into 7 arrays
 foreach ( $grouped_posts as $day => $day_posts ) {
 ?>

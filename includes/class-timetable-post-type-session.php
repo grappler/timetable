@@ -34,19 +34,22 @@ class Timetable_Post_Type_Session extends Gamajo_Post_Type {
 	 */
 	protected function default_args() {
 		$labels = array(
-			'name'                => _x( 'Sessions', 'Post Type General Name', 'timetable' ),
-			'singular_name'       => _x( 'Session', 'Post Type Singular Name', 'timetable' ),
-			'menu_name'           => __( 'Sessions', 'timetable' ),
-			'parent_item_colon'   => __( 'Parent Item:', 'timetable' ),
-			'all_items'           => __( 'All Items', 'timetable' ),
-			'view_item'           => __( 'View Item', 'timetable' ),
-			'add_new_item'        => __( 'Add New Item', 'timetable' ),
-			'add_new'             => __( 'Add New', 'timetable' ),
-			'edit_item'           => __( 'Edit Item', 'timetable' ),
-			'update_item'         => __( 'Update Item', 'timetable' ),
-			'search_items'        => __( 'Search Item', 'timetable' ),
-			'not_found'           => __( 'Not found', 'timetable' ),
-			'not_found_in_trash'  => __( 'Not found in Trash', 'timetable' ),
+			'name'                  => _x( 'Sessions', 'Post Type General Name', 'timetable' ),
+			'singular_name'         => _x( 'Session', 'Post Type Singular Name', 'timetable' ),
+			'menu_name'             => __( 'Sessions', 'timetable' ),
+			'parent_item_colon'     => __( 'Parent Item:', 'timetable' ),
+			'all_items'             => __( 'All Items', 'timetable' ),
+			'view_item'             => __( 'View Item', 'timetable' ),
+			'add_new_item'          => __( 'Add New Item', 'timetable' ),
+			'add_new'               => __( 'Add New', 'timetable' ),
+			'edit_item'             => __( 'Edit Item', 'timetable' ),
+			'update_item'           => __( 'Update Item', 'timetable' ),
+			'search_items'          => __( 'Search Item', 'timetable' ),
+			'not_found'             => __( 'Not found', 'timetable' ),
+			'not_found_in_trash'    => __( 'Not found in Trash', 'timetable' ),
+			'filter_items_list'     => __( 'Filter sessions list', 'timetable' ),
+			'items_list_navigation' => __( 'Session list navigation', 'timetable' ),
+			'items_list'            => __( 'Session list', 'timetable' ),
 		);
 
 		$rewrite = array(

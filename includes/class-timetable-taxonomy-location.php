@@ -58,6 +58,8 @@ class Timetable_Taxonomy_Location_Type extends Gamajo_Taxonomy {
 			'add_or_remove_items'        => __( 'Add or remove items', 'timetable' ),
 			'choose_from_most_used'      => __( 'Choose from the most used items', 'timetable' ),
 			'not_found'                  => __( 'Not Found', 'timetable' ),
+			'items_list_navigation'      => __( 'Location list navigation', 'timetable' ),
+			'items_list'                 => __( 'Location list', 'timetable' ),
 		);
 
 		$rewrite = array(

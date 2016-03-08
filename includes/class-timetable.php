@@ -149,6 +149,7 @@ class Timetable {
 			 * The class responsible for defining all actions that occur in the Dashboard.
 			 */
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-timetable-admin.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-timetable-settings.php';
 
 			/**
 			 * The class responsible for defining all actions that occur in the Dashboard.
@@ -253,7 +254,7 @@ class Timetable {
 	private function register_taxonomy() {
 
 		$timetable_taxonomy_location_type = new Timetable_Taxonomy_Location_Type;
-		$timetable_taxonomy_location_type->register();
+		$this->loader->add_action( 'init', $timetable_taxonomy_location_type, 'register' );
 
 	}
 
@@ -268,7 +269,7 @@ class Timetable {
 	private function register_post_type() {
 
 		$timetable_post_type_session = new Timetable_Post_Type_Session;
-		$timetable_post_type_session->register();
+		$this->loader->add_action( 'init', $timetable_post_type_session, 'register' );
 
 	}
 

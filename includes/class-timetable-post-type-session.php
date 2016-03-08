@@ -78,7 +78,7 @@ class Timetable_Post_Type_Session extends Gamajo_Post_Type {
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'query_var'           => false,
-			'rewrite'             => false,
+			'rewrite'             => true,
 			'capability_type'     => 'post',
 		);
 

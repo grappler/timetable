@@ -69,7 +69,7 @@ class Timetable_Taxonomy_Location_Type extends Gamajo_Taxonomy {
 			'show_in_nav_menus'          => true,
 			'show_tagcloud'              => false,
 			'query_var'                  => 'location',
-			'rewrite'                    => false,
+			'rewrite'                    => true,
 		);
 
 		return apply_filters( 'timetable_taxonomy_location_type_args', $args );

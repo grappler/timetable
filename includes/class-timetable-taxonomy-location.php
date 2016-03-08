@@ -16,14 +16,6 @@
  * @author  Ulrich Pogson
  */
 class Timetable_Taxonomy_Location_Type extends Gamajo_Taxonomy {
-	/**
-	 * Name of the object type.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type string
-	 */
-	protected $object_type = 'session';
 
 	/**
 	 * Taxonomy ID.

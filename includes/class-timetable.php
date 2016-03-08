@@ -70,8 +70,8 @@ class Timetable {
 			$this->define_public_hooks();
 		}
 
-		$this->register_post_type();
 		$this->register_taxonomy();
+		$this->register_post_type();
 
 	}
 
@@ -250,10 +250,10 @@ class Timetable {
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
 	 */
-	private function register_post_type() {
+	private function register_taxonomy() {
 
-		$timetable_post_type_session = new Timetable_Post_Type_Session;
-		$timetable_post_type_session->register();
+		$timetable_taxonomy_location_type = new Timetable_Taxonomy_Location_Type;
+		$timetable_taxonomy_location_type->register();
 
 	}
 
@@ -265,10 +265,10 @@ class Timetable {
 	 * @since    1.0.0
 	 * @access   (for functions: only use if private)
 	 */
-	private function register_taxonomy() {
+	private function register_post_type() {
 
-		$timetable_taxonomy_location_type = new Timetable_Taxonomy_Location_Type;
-		$timetable_taxonomy_location_type->register();
+		$timetable_post_type_session = new Timetable_Post_Type_Session;
+		$timetable_post_type_session->register();
 
 	}
 

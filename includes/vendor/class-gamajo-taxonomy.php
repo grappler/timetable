@@ -27,15 +27,6 @@ abstract class Gamajo_Taxonomy implements Gamajo_Registerable {
 	protected $taxonomy;
 
 	/**
-	 * Name of the object type. Default is null.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @type array
-	 */
-	protected $object_type = null;
-
-	/**
 	 * Taxonomy arguments.
 	 *
 	 * @since 1.0.0
@@ -54,12 +45,13 @@ abstract class Gamajo_Taxonomy implements Gamajo_Registerable {
 	 *
 	 * @since 1.0.0
 	 *
+	 * @param  array|string $object_type Optional. Name of the object type. Default is null.
 	 */
-	public function register() {
+	public function register( $object_type = null ) {
 		if ( ! $this->args ) {
 			$this->set_args();
 		}
-		register_taxonomy( $this->taxonomy, $this->object_type, $this->args );
+		register_taxonomy( $this->taxonomy, $object_type, $this->args );
 	}
 
 	/**
